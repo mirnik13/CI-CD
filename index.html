@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя Лабораторная</title>
+</head>
+<body>
+    <h1>Форма регистрации</h1>
+    <form id="reg-form">
+        <input type="text" id="username" placeholder="Введите имя" required>
+        <button type="submit" id="submit-button">Отправить</button>
+    </form>
+    <p id="message" style="display:none;">Успешно отправлено!</p>
+
+    <script>
+        document.getElementById('reg-form').onsubmit = function(e) {
+            e.preventDefault();
+            document.getElementById('message').style.display = 'block';
+        };
+    </script>
+</body>
+</html>
