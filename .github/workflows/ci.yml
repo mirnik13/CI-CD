@@ -1,0 +1,27 @@
+name: CI UI Tests
+
+on:
+  push:
+    branches: [ "main", "dev", "fix" ]
+  pull_request:
+    branches: [ "main", "dev" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install selenium pytest webdriver-manager
+
+    - name: Run Tests
+      run: pytest test_app.py
